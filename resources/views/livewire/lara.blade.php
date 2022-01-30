@@ -19,7 +19,11 @@
                 <h1 class="text-white font-bold text-5xl leading-tight mb-4">Simple Lara NewsLetter lets drive your
                     future</h1>
                 <p class="text-indigo-200 mb-10">Subscribe now and get chance to become a full dev</p>
-                <x-button class="py-3 px-8 bg-red-500" x-on:click="showSubscribe = true">Subscribe</x-button>
+                {{-- <x-button class="py-3 px-8 bg-red-500" x-on:click="showSubscribe = true">Subscribe</x-button> --}}
+                <button x-on:click="showSubscribe = true" type="button"
+                    class="text-white py-3 px-8 bg-gradient-to-r from-red-500 to-red-400 hover:from-pink-500 hover:to-yellow-500 rounded">
+                    Subscribe
+                </button>
             </div>
         </div>
         {{-- <div class="flex fixed top-0 bg-gray-900 bg-opacity-60 items-center w-full h-screen" x-show="showSubscribe"
