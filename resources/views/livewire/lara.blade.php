@@ -1,6 +1,6 @@
 <div>
-    <div class="flex flex-col bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 w-full h-screen"
-        x-data="{ showSubscribe: false }">
+    <div class="flex flex-col bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 w-full h-screen" x-data="{ showSubscribe: true,
+        showSuccess: true }">
         <nav class="flex pt-5 justify-between container mx-auto text-indigo-100">
             <a class="text-4xl font-bold" href="/">
                 <x-application-logo class="w-16 h-16 fill-current"></x-application-logo>
@@ -40,5 +40,20 @@
             </div>
         </div>
 
+
+        <div class="flex fixed top-0 bg-gray-900 bg-opacity-60 items-center w-full h-screen" x-show="showSuccess"
+            x-on:click.self="showSuccess = false" x-on:keydown.escape.window="showSuccess = false">
+            <div class=" bg-green-500 m-auto shadow-2xl rounded-xl p-8">
+                <p class="text-white text-8xl font-extrabold text-center mt-5 animate-pulse">
+                    &check;
+                </p>
+                <p class="text-white text-5xl font-extrabold text-center mt-16">
+                    Great!
+                </p>
+                <p class="text-white text-3xl text-center">
+                    See you in your inbox
+                </p>
+            </div>
+        </div>
     </div>
 </div>
