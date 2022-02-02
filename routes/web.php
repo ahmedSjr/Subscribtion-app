@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\SubscriberController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/subscribers/verify/{subscriber}', [SubscriberController::class, 'verify'])->middleware('signed')->name('subscribers.verify');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

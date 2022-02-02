@@ -13,6 +13,16 @@ class SubscriberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function verify(Subscriber $subscriber)
+    {
+        if(! $subscriber->hasVerifiedEmail()) {
+            $subscriber->markEmailAsVerified();
+        }
+
+        return redirect('/?verified=1');
+    }
+
+
     public function index()
     {
         //
