@@ -52,7 +52,8 @@
                     wire:model="email">
                 </x-input>
                 <span class="text-gray-100 text-xs mt-2">
-                    We will send you a confirmation email
+                    {{                     $errors->has('email') ? $errors->first('email') : 'We will send you a confirmation email' }}
+
                 </span>
                 <x-button class="px-5 py-3 mt-5 w-80 bg-blue-500 justify-center">Get In</x-button>
             </form>
