@@ -4,6 +4,10 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Subscriber;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Auth\Notifications\VerifyEmail;
+
+
 class Lara extends Component
 {
     public $email;
@@ -14,9 +18,17 @@ class Lara extends Component
 
     public function subscribe(){
         $this->validate();
-        $subscriber = Subscriber::create([
-            'email' => $this->email
-        ]);
+        DB::transaction(function () {
+            $subscriber = Subscriber::create([
+                'email' => $this->email
+            ]);
+    
+            $notification = new VerifyEmail;
+    
+            $subscriber->notify($notification);
+            
+        }, $deadLockRestries = 5);
+
 
         $this->reset('email');
     }
