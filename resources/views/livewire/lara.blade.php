@@ -1,6 +1,6 @@
 <div>
-    <div class="flex flex-col bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 w-full h-screen" x-data="{ showSubscribe: false,
-        showSuccess: false }">
+    <div class="flex flex-col bg-gradient-to-r from-indigo-400  to-pink-300 w-full h-screen" x-data="{ showSubscribe: @entangle('showSubscribe'),
+        showSuccess: @entangle('showSuccess') }">
         <nav class="flex pt-5 justify-between container mx-auto text-indigo-100">
             <a class="text-4xl font-bold" href="/">
                 <x-application-logo class="w-16 h-16 fill-current"></x-application-logo>
@@ -52,7 +52,7 @@
                     wire:model="email">
                 </x-input>
                 <span class="text-gray-100 text-xs mt-2">
-                    {{                     $errors->has('email') ? $errors->first('email') : 'We will send you a confirmation email' }}
+                    {{ $errors->has('email') ? $errors->first('email') : 'We will send you a confirmation email' }}
 
                 </span>
                 <x-button class="px-5 py-3 mt-5 w-80 bg-blue-500 justify-center">Get In</x-button>

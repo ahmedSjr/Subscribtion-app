@@ -13,6 +13,9 @@ use Illuminate\Auth\Notifications\VerifyEmail;
 class Lara extends Component
 {
     public $email;
+    public $showSubscribe = false;
+    public $showSuccess = false;
+
 
     protected $rules = [
         'email' => 'required|email:filter|unique:subscribers,email'
@@ -43,6 +46,8 @@ class Lara extends Component
 
 
         $this->reset('email');
+        $this->showSubscribe = false;
+        $this->showSuccess = true;
     }
     public function render()
     {
