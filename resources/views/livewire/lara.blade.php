@@ -49,13 +49,16 @@
             </p>
             <form action="" class="flex flex-col items-center p-24" wire:submit.prevent="subscribe">
                 <x-input class="px-5 py-3 w-80 border border-blue-400" type="email" placeholder="Enter your email"
-                    wire:model="email">
+                    wire:model.defer="email">
                 </x-input>
                 <span class="text-gray-100 text-xs mt-2">
                     {{ $errors->has('email') ? $errors->first('email') : 'We will send you a confirmation email' }}
 
                 </span>
-                <x-button class="px-5 py-3 mt-5 w-80 bg-blue-500 justify-center">Get In</x-button>
+                <x-button class="px-5 py-3 mt-5 w-80 bg-blue-500 justify-center"><span class="animate-spin"
+                        wire:loading wire:target="subscribe">&#9696;</span>
+                    <span wire:loading.remove wire:target="subscribe">Get In</span>
+                </x-button>
             </form>
         </x-model>
         <x-model class="bg-green-500" trigger="showSuccess">
