@@ -11,7 +11,8 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <h2 class="text-2xl text-gray-600 mb-6">Settings</h2>
                     <ul class="list-disc pl-5">
-                        <li class="text-blue-500 hover:underline"><a href="">Manage Subscribers</a></li>
+                        <li class="text-blue-500 hover:underline"><a href="{{ route('subscribers.all') }}">Manage
+                                Subscribers</a></li>
                     </ul>
                 </div>
             </div>

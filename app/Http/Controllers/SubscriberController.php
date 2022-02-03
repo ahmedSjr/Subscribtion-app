@@ -23,9 +23,11 @@ class SubscriberController extends Controller
     }
 
 
-    public function index()
+    public function all()
     {
-        //
+        return view('subscribers.all')->with([
+            'subscribers' => Subscriber::all(),
+        ]);
     }
 
     /**
